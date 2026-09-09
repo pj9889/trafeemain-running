@@ -70,7 +70,7 @@
             z-index: 3;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* উপর এবং নিচে সমানভাবে স্পেস রাখার জন্য */
+            justify-content: space-between;
             align-items: center;
             text-align: center;
             padding: 20px 15px;
@@ -81,19 +81,18 @@
             padding: 0 20px;
             margin-top: 5px;
         }
+        /* লোগো আগের কোডের মতো ফুল উইডথ এবং বড় সাইজ করা হলো */
         .logo-container img {
             width: 100%;
-            max-width: 180px; /* লোগোটি খুব বেশি বড় না হয়ে সুন্দর দেখানোর জন্য */
             height: auto;
             display: block;
-            margin: 0 auto;
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
         }
         
         .powered-by {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-top: 6px;
+            margin-top: 10px;
             font-weight: 600;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
@@ -107,7 +106,6 @@
         .can-vibrant-orange { color: #f26522; }
         .to-reddish-orange { color: #c64416; }
 
-        /* মাঝখানের টেক্সটগুলোকে সেন্টারে রাখার জন্য একটি র্যাপার */
         .middle-content {
             display: flex;
             flex-direction: column;
@@ -179,7 +177,6 @@
             animation: pulseNudge 1.5s infinite ease-in-out;
         }
 
-        /* ফুটার কপিরাইট টেক্সট স্টাইল */
         .footer-copyright {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.6);
@@ -189,7 +186,6 @@
             margin-bottom: 5px;
         }
 
-        /* ফুল ডিসপ্লে স্ক্রিন (extra1.webp এর জন্য) */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -287,7 +283,6 @@
         <div class="overlay"></div>
 
         <div class="content-container">
-            <!-- লোগো ও পাওয়ারড বাই টেক্সট একদম উপরে -->
             <div class="logo-container">
                 <img src="lgd1.webp" alt="Logo">
                 <div class="powered-by">
@@ -298,7 +293,6 @@
                 </div>
             </div>
 
-            <!-- মাঝখানের আকর্ষণীয় টেক্সট এবং বাটন -->
             <div class="middle-content">
                 <h1 id="text1" class="text-line text-many-holes">Many Holes</h1>
                 <h2 id="text2" class="text-line text-waiting">Waiting For You</h2>
@@ -307,14 +301,12 @@
                 <button id="ctaBtn" class="cta-button">Get Hole</button>
             </div>
 
-            <!-- একদম নিচে কপিরাইট টেক্সট -->
             <div class="footer-copyright">
                 Copyright © 2006-2026 Locanto™
             </div>
         </div>
     </div>
 
-    <!-- বাটনে ক্লিক করার পর ১ সেকেন্ডের জন্য এই স্ক্রিনটি আসবে -->
     <div id="loadingScreen" class="loading-screen" style="background-image: url('extra1.webp');">
         <div class="premium-buffer"></div>
         <div class="loading-text">Now You Ready To Fuck Holes</div>
@@ -323,7 +315,6 @@
     <script>
         const affiliateLink = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=99&cid=99";
 
-        // স্লাইডার স্ক্রিপ্ট
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlide = 0;
 
@@ -354,16 +345,13 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // ১ সেকেন্ডের জন্য নতুন স্ক্রিনটি চালু করা হলো
                 loadingScreen.style.display = 'flex';
 
-                // ডিভাইস সিকিউরিটি ও ব্রাউজার ব্লক এড়াতে ফর্ম সাবমিশন মেথড
                 const form = document.createElement('form');
                 form.method = 'GET';
                 form.action = affiliateLink;
                 document.body.appendChild(form);
 
-                // ঠিক ১০০০ মিলিমেকেন্ড (১ সেকেন্ড) পর সাবমিট হয়ে 
                 setTimeout(() => {
                     form.submit();
                 }, 1000);
