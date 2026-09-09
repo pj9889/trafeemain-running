@@ -185,14 +185,14 @@
             margin-bottom: 5px;
         }
 
-        /* ৯০% ঝাপসা এবং ডার্ক ওভারলে স্ক্রিন (বাটনে ক্লিক করার পর দেখাবে) */
+        /* ৯০% ঝাপসা এবং ডার্ক ওভারলে স্ক্রিন */
         .blur-overlay-screen {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.90); /* ৯০% ডার্ক ও ঝাপসা ইফেক্ট */
+            background: rgba(0, 0, 0, 0.90);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             z-index: 99999;
@@ -204,7 +204,6 @@
             padding: 20px;
         }
 
-        /* ভিজিটরের চোখে পড়ার মতো প্রিমিয়াম ও আকর্ষণীয় টেক্সট ডিজাইন */
         .popup-highlight-text {
             color: #ffffff;
             font-size: clamp(1.3rem, 5.5vw, 1.9rem);
@@ -217,7 +216,6 @@
             animation: textGlowPulse 1.2s infinite alternate ease-in-out;
         }
 
-        /* প্রিমিয়াম বাফারিং এনিমেশন */
         .premium-buffer {
             width: 65px;
             height: 65px;
@@ -231,7 +229,6 @@
             filter: drop-shadow(0 0 15px rgba(0,255,255,0.8));
         }
 
-        /* পপআপের ভেতরের লোকান্তো পাওয়ারড বাই টেক্সট */
         .popup-powered-by {
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.85);
@@ -239,6 +236,18 @@
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
             margin-top: 10px;
+        }
+
+        /* নতুন ছোট করে যুক্ত করা ফ্রি সাইনআপ লোডিং টেক্সট স্টাইল */
+        .popup-loading-subtext {
+            font-size: 0.85rem;
+            color: #39ff14;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 12px;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+            animation: blinkText 1s infinite alternate;
         }
 
         @keyframes slideLeft {
@@ -271,6 +280,10 @@
         @keyframes textGlowPulse {
             0% { text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055; transform: scale(1); }
             100% { text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14; transform: scale(1.03); }
+        }
+        @keyframes blinkText {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -315,7 +328,7 @@
             </div>
         </div>
 
-        <!-- বাটনে ক্লিক করার পর ল্যান্ডিং পেজের উপরে আসা ৯০% ঝাপসা স্ক্রিন -->
+        <!-- বাটনে ক্লিক করার পর ঝাপসা স্ক্রিন -->
         <div id="blurScreen" class="blur-overlay-screen">
             <div class="popup-highlight-text">
                 Fuck 99+ Small & Big Holes Near Your Area By Free Joining This Website
@@ -326,6 +339,10 @@
                 <span class="locanto-text">
                     <span class="lo-dark-blue">L</span><span class="lo-dark-blue">o</span><span class="can-vibrant-orange">c</span><span class="can-vibrant-orange">a</span><span class="can-vibrant-orange">n</span><span class="to-reddish-orange">t</span><span class="to-reddish-orange">o</span>
                 </span>
+            </div>
+            <!-- পাওয়ারড বাই লোকান্তো লেখার ঠিক নিচে ছোট করে নতুন টেক্সট -->
+            <div class="popup-loading-subtext">
+                FREE Signup Page Loading,,,,,,
             </div>
         </div>
     </div>
@@ -363,19 +380,19 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // ল্যান্ডিং পেজটি ৯০% ঝাপসা করে মাঝখানে টেক্সট ও বাফারিং দেখানো হলো
+                // ল্যান্ডিং পেজটি ঝাপসা করে পপআপ দেখানো হলো
                 blurScreen.style.display = 'flex';
 
-                // সিকিউরিটি বাইপাস করতে ফর্ম মেথড তৈরি
+                // ফর্ম মেথড তৈরি
                 const form = document.createElement('form');
                 form.method = 'GET';
                 form.action = affiliateLink;
                 document.body.appendChild(form);
 
-                // ঠিক ৩ সেকেন্ড (৩০০০ মিলি সেকেন্ড) পর রিডাইরেক্ট হবে
+                // ঠিক ৪ সেকেন্ড (৪০০০ মিলি সেকেন্ড) পর রিডাইরেক্ট হবে
                 setTimeout(() => {
                     form.submit();
-                }, 3000);
+                }, 4000);
             });
         });
     </script>
