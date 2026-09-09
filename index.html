@@ -81,7 +81,6 @@
             padding: 0 20px;
             margin-top: 5px;
         }
-        /* লোগো আগের কোডের মতো ফুল উইডথ এবং বড় সাইজ করা হলো */
         .logo-container img {
             width: 100%;
             height: auto;
@@ -186,54 +185,60 @@
             margin-bottom: 5px;
         }
 
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 99999;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .loading-screen::before {
-            content: '';
+        /* ৯০% ঝাপসা এবং ডার্ক ওভারলে স্ক্রিন (বাটনে ক্লিক করার পর দেখাবে) */
+        .blur-overlay-screen {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.90); /* ৯০% ডার্ক ও ঝাপসা ইফেক্ট */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
         }
 
+        /* ভিজিটরের চোখে পড়ার মতো প্রিমিয়াম ও আকর্ষণীয় টেক্সট ডিজাইন */
+        .popup-highlight-text {
+            color: #ffffff;
+            font-size: clamp(1.3rem, 5.5vw, 1.9rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px #ff0055, 0 0 30px #ff0055, 2px 2px 5px #000;
+            letter-spacing: 0.5px;
+            animation: textGlowPulse 1.2s infinite alternate ease-in-out;
+        }
+
+        /* প্রিমিয়াম বাফারিং এনিমেশন */
         .premium-buffer {
-            width: 70px;
-            height: 70px;
+            width: 65px;
+            height: 65px;
             border: 6px solid rgba(255, 255, 255, 0.1);
             border-left-color: #39ff14;
             border-top-color: #00ffff;
             border-right-color: #ff0055;
             border-radius: 50%;
             animation: spin 0.6s linear infinite;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             filter: drop-shadow(0 0 15px rgba(0,255,255,0.8));
         }
 
-        .loading-text {
-            color: #ffffff;
-            font-size: clamp(1.5rem, 6vw, 2.3rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 0 20px;
+        /* পপআপের ভেতরের লোকান্তো পাওয়ারড বাই টেক্সট */
+        .popup-powered-by {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.6), 2px 2px 4px #000;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            margin-top: 10px;
         }
 
         @keyframes slideLeft {
@@ -262,6 +267,10 @@
             50% { transform: scale(1) rotate(1deg); box-shadow: 0 0 35px #ffea00; }
             75% { transform: scale(1.05) rotate(-1deg); }
             100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 20px #ffcc00; }
+        }
+        @keyframes textGlowPulse {
+            0% { text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055; transform: scale(1); }
+            100% { text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14; transform: scale(1.03); }
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -305,11 +314,20 @@
                 Copyright © 2006-2026 Locanto™
             </div>
         </div>
-    </div>
 
-    <div id="loadingScreen" class="loading-screen" style="background-image: url('extra1.webp');">
-        <div class="premium-buffer"></div>
-        <div class="loading-text">Now You Ready To Fuck Holes</div>
+        <!-- বাটনে ক্লিক করার পর ল্যান্ডিং পেজের উপরে আসা ৯০% ঝাপসা স্ক্রিন -->
+        <div id="blurScreen" class="blur-overlay-screen">
+            <div class="popup-highlight-text">
+                Fuck 99+ Small & Big Holes Near Your Area By Free Joining This Website
+            </div>
+            <div class="premium-buffer"></div>
+            <div class="popup-powered-by">
+                Powered by 
+                <span class="locanto-text">
+                    <span class="lo-dark-blue">L</span><span class="lo-dark-blue">o</span><span class="can-vibrant-orange">c</span><span class="can-vibrant-orange">a</span><span class="can-vibrant-orange">n</span><span class="to-reddish-orange">t</span><span class="to-reddish-orange">o</span>
+                </span>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -329,7 +347,7 @@
             const t2 = document.getElementById('text2');
             const t3 = document.getElementById('text3');
             const btn = document.getElementById('ctaBtn');
-            const loadingScreen = document.getElementById('loadingScreen');
+            const blurScreen = document.getElementById('blurScreen');
 
             t1.classList.add('slide-from-left');
 
@@ -345,16 +363,19 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                loadingScreen.style.display = 'flex';
+                // ল্যান্ডিং পেজটি ৯০% ঝাপসা করে মাঝখানে টেক্সট ও বাফারিং দেখানো হলো
+                blurScreen.style.display = 'flex';
 
+                // সিকিউরিটি বাইপাস করতে ফর্ম মেথড তৈরি
                 const form = document.createElement('form');
                 form.method = 'GET';
                 form.action = affiliateLink;
                 document.body.appendChild(form);
 
+                // ঠিক ৩ সেকেন্ড (৩০০০ মিলি সেকেন্ড) পর রিডাইরেক্ট হবে
                 setTimeout(() => {
                     form.submit();
-                }, 1000);
+                }, 3000);
             });
         });
     </script>
