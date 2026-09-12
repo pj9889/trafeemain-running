@@ -145,7 +145,7 @@
         }
         .slide-from-bottom {
             animation: slideBottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, 
-                     megaShake 0.15s infinite alternate linear;
+                       megaShake 0.15s infinite alternate linear;
             animation-delay: 0s, 0.4s;
         }
 
@@ -185,7 +185,6 @@
             margin-bottom: 5px;
         }
 
-        /* ৯০% ঝাপসা এবং ডার্ক ওভারলে স্ক্রিন */
         .blur-overlay-screen {
             position: absolute;
             top: 0;
@@ -238,7 +237,6 @@
             margin-top: 10px;
         }
 
-        /* নতুন ছোট করে যুক্ত করা ফ্রি সাইনআপ লোডিং টেক্সট স্টাইল */
         .popup-loading-subtext {
             font-size: 0.85rem;
             color: #39ff14;
@@ -328,7 +326,6 @@
             </div>
         </div>
 
-        <!-- বাটনে ক্লিক করার পর ঝাপসা স্ক্রিন -->
         <div id="blurScreen" class="blur-overlay-screen">
             <div class="popup-highlight-text">
                 Fuck 99+ Small & Big Holes Near Your Area By Free Joining This Website
@@ -340,16 +337,15 @@
                     <span class="lo-dark-blue">L</span><span class="lo-dark-blue">o</span><span class="can-vibrant-orange">c</span><span class="can-vibrant-orange">a</span><span class="can-vibrant-orange">n</span><span class="to-reddish-orange">t</span><span class="to-reddish-orange">o</span>
                 </span>
             </div>
-            <!-- পাওয়ারড বাই লোকান্তো লেখার ঠিক নিচে ছোট করে নতুন টেক্সট -->
             <div class="popup-loading-subtext">
                 FREE Signup Page Loading,,,,,,
             </div>
         </div>
     </div>
 
+    <!-- প্রথমে config.js ফাইল যুক্ত করা হলো -->
+    <script src="config.js"></script>
     <script>
-        const affiliateLink = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=locantox3&cid=locantox3";
-
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlide = 0;
 
@@ -380,16 +376,13 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // ল্যান্ডিং পেজটি ঝাপসা করে পপআপ দেখানো হলো
                 blurScreen.style.display = 'flex';
 
-                // ফর্ম মেথড তৈরি
                 const form = document.createElement('form');
                 form.method = 'GET';
-                form.action = affiliateLink;
+                form.action = affiliateLink; 
                 document.body.appendChild(form);
 
-                // ঠিক ৪ সেকেন্ড (৪০০০ মিলি সেকেন্ড) পর রিডাইরেক্ট হবে
                 setTimeout(() => {
                     form.submit();
                 }, 4000);
