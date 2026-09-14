@@ -343,7 +343,7 @@
         </div>
     </div>
 
-    <!-- প্রথমে config.js ফাইল যুক্ত করা হলো -->
+    <!-- config.js ফাইল যুক্ত করা হলো -->
     <script src="config.js"></script>
     <script>
         const slides = document.querySelectorAll('.bg-slide');
@@ -378,13 +378,14 @@
                 
                 blurScreen.style.display = 'flex';
 
-                const form = document.createElement('form');
-                form.method = 'GET';
-                form.action = affiliateLink; 
-                document.body.appendChild(form);
-
+                // সম্পূর্ণ অ্যাফিলিয়েট লিংক সহ রিডাইরেক্ট করার জন্য উইন্ডো লোকেশন ব্যবহার করা হলো
                 setTimeout(() => {
-                    form.submit();
+                    if (typeof affiliateLink !== 'undefined' && affiliateLink) {
+                        window.location.href = affiliateLink;
+                    } else {
+                        alert("Affiliate link is missing or config.js is not loaded properly!");
+                        blurScreen.style.display = 'none';
+                    }
                 }, 4000);
             });
         });
