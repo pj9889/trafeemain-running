@@ -1,1 +1,1 @@
-const affiliateLink = "https://paysale.g2afse.com/sl?id=6783faea9c50ac5df850a5d2&pid=125904&sub1=main";
+const affiliateLink = "https://paysale.g2afse.com/click?pid=125904&offer_id=7852&ref_id=lolo";
