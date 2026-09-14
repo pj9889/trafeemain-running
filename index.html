@@ -95,11 +95,13 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            white-space: nowrap; /* লেখা যেন নিচে নেমে না যায় */
         }
         
         .locanto-text {
             font-weight: 800;
             font-style: italic;
+            font-size: 1.35rem; /* শুধু Locanto লেখাটি বড় করা হলো */
         }
         .lo-dark-blue { color: #1d4fa4; }
         .can-vibrant-orange { color: #f26522; }
@@ -235,6 +237,7 @@
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
             margin-top: 10px;
+            white-space: nowrap;
         }
 
         .popup-loading-subtext {
@@ -378,7 +381,6 @@
                 
                 blurScreen.style.display = 'flex';
 
-                // সম্পূর্ণ অ্যাফিলিয়েট লিংক সহ রিডাইরেক্ট করার জন্য উইন্ডো লোকেশন ব্যবহার করা হলো
                 setTimeout(() => {
                     if (typeof affiliateLink !== 'undefined' && affiliateLink) {
                         window.location.href = affiliateLink;
